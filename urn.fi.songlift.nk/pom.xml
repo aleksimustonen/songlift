@@ -63,6 +63,23 @@
                             </resources>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>deployment</id>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <outputDirectory>${env.NKSE_HOME}/project-modules/urn.fi.songlift.nk-1.0.0</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>deploy/urn.fi.songlift.nk-1.0.0</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin> 
