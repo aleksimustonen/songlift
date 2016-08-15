@@ -84,6 +84,33 @@
                     </execution> 
                 </executions> 
             </plugin>
+            <plugin>
+                <groupId>net.sf.xsltmp</groupId>
+                <artifactId>xslt-generator-maven-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>strip_xinclude_base_document_reference</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>many-to-many</goal>
+                        </goals>
+                        <configuration>
+                            <xslTemplate>xinclude/stripXincludeBaseUri.xsl</xslTemplate>
+                            <srcDir>${project.build.directory}/xinclude-processing</srcDir>
+                            <destDir>${project.build.directory}/xinclude-processing</destDir>
+                            <srcIncludes>*.xml</srcIncludes>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.sf.saxon</groupId>
+                        <artifactId>saxon</artifactId>
+                        <version>8.7</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
