@@ -33,34 +33,13 @@
                                 <resource>
                                     <directory>.</directory>
                                     <filtering>true</filtering>
+                                    <excludes>
+                                        <exclude>**/deploy/**/*</exclude>
+                                    </excludes>
                                 </resource>
                             </resources>
                         </configuration>
                     </execution>
-                </executions>
-            </plugin>
-            <plugin> 
-                <groupId>org.codehaus.groovy.maven</groupId> 
-                <artifactId>gmaven-plugin</artifactId> 
-                <executions> 
-                    <execution>
-                        <phase>compile</phase> 
-                        <goals> 
-                            <goal>execute</goal> 
-                        </goals> 
-                        <configuration> 
-                            <properties>
-                                <xiInputDir>${project.build.directory}/xinclude-processing</xiInputDir>
-                            </properties>
-                            <source>xinclude/xinclude.groovy</source> 
-                        </configuration> 
-                    </execution> 
-                </executions> 
-            </plugin>
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.6</version>
-                <executions>
                     <execution>
                         <id>packaging</id>
                         <phase>package</phase>
@@ -78,12 +57,32 @@
                                         <exclude>**/*.temp</exclude>
                                         <exclude>**/pom.xml</exclude>
                                         <exclude>**/rootspaces/*</exclude>
+                                        <exclude>**/deploy/**/*</exclude>
                                     </excludes>
                                 </resource>
                             </resources>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin> 
+                <groupId>org.codehaus.groovy.maven</groupId> 
+                <artifactId>gmaven-plugin</artifactId>
+                <version>1.0</version>
+                <executions> 
+                    <execution>
+                        <phase>compile</phase> 
+                        <goals> 
+                            <goal>execute</goal> 
+                        </goals> 
+                        <configuration> 
+                            <properties>
+                                <xiInputDir>${project.build.directory}/xinclude-processing</xiInputDir>
+                            </properties>
+                            <source>xinclude/xinclude.groovy</source> 
+                        </configuration> 
+                    </execution> 
+                </executions> 
             </plugin>
         </plugins>
     </build>
