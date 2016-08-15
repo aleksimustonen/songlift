@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book>
+        <id>book:urn:fi:songlift:nk</id>
+        <title>Songlift Documentation</title>
+        <desc>This documentation will cover something maybe</desc>
+        <toc>
+            <item id="urn:fi:songlift:nk:guide"/>
+            <item id="urn:fi:songlift:nk:endpoints"/>
+        </toc>
+    </book>
+</books>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log>
+    <id>SongliftLog</id>
+    <name>Songlift Log</name>
+    <handlers>
+        <handler>
+            <instance>
+                <class>org.netkernel.layer0.logging.LogFileHandler</class>
+                <string>%b/log/songlift-%g.log</string>
+                <int>50000000</int>
+                <int>3</int>
+                <boolean>true</boolean>
+            </instance>
+            <formatterClass>org.netkernel.layer0.logging.XMLFormatter</formatterClass>
+        </handler>
+    </handlers>
+</log>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence>
+    <declare-tag name="xpath">meta:xpath</declare-tag>
+    
+    <xpath assignment="inputEnvelope">
+        <selector><literal type="string">/*[1]</literal></selector>
+        <source>arg:message</source>
+    </xpath>
+    
+    <xpath assignment="requestName">
+        <selector><literal type="string">(//s11:Body|/s12:Body)/local-name(*[1])</literal></selector>
+        <source>arg:message</source>
+    </xpath>
+    
+    <request assignment="responseName">
+        <identifier>active:groovy</identifier>
+        <argument name="operator">
+            <literal type="string">
+                requestName = context.source("arg:requestName")
+                responseName = requestName.contains("Request") ? requestName.replace("Request", "Response") : requestName
+                context.createResponseFrom(responseName)
+            </literal>
+        </argument>
+        <argument name="requestName">this:requestName</argument>
+    </request>
+    
+    <request assignment="response">
+        <identifier>active:xslt2</identifier>
+        <argument name="operator">
+            <literal type="xml">
+                <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                    xmlns:s11="http://schemas.xmlsoap.org/soap/envelope/"
+                    xmlns:s12="http://www.w3.org/2003/05/soap-envelope"
+                    exclude-result-prefixes="xs"
+                    version="2.0">
+                    <xsl:output method="xml" omit-xml-declaration="yes"/>
+                    
+                    <xsl:param name="responseName">defaultResponse</xsl:param>
+                    
+                    <xsl:template match="@*|node()">
+                        <xsl:copy>
+                            <xsl:apply-templates />
+                        </xsl:copy>
+                    </xsl:template>
+                    
+                    <xsl:template match="s11:Body/*[1]|s12:Body/*[1]">
+                        <xsl:element name="{$responseName}">
+                            <xsl:apply-templates />
+                        </xsl:element>
+                    </xsl:template>
+                </xsl:stylesheet>
+            </literal>
+        </argument>
+        <argument name="operand">this:inputEnvelope</argument>
+        <argument name="responseName">this:responseName</argument>
+    </request>
+    
+    <log>
+        <message>
+            <literal type="string">Input: SOAP Action from HTTP Header: %1. Request name from XML: %2. Full SOAP Envelope: %3</literal>
+        </message>
+        <param>arg:action</param>
+        <param>this:requestName</param>
+        <param>this:inputEnvelope</param>
+    </log>
+    
+    <log>
+        <message>
+            <literal type="string">Output: Response name: %1. Full SOAP Envelope: %2</literal>
+        </message>
+        <param>this:responseName</param>
+        <param>this:response</param>
+    </log>
+    
+</sequence>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rootspace 
+    name="Songlift - SOAP Services"
+    uri="urn:fi:songlift:nk:services:soap" 
+    public="true">
+    <fileset>
+        <glob>etc/system/SimpleDynamicImportHook.xml</glob>
+    </fileset>
+    
+    <overlay>
+        <prototype>http.SOAPOverlay</prototype>
+        <config>
+            <zone>res:/songlift/api/soap/.*</zone>
+        </config>
+        <space>
+            <mapper>
+                <config>
+                    <endpoint>
+                        <grammar>
+                            <active>
+                                <identifier>soapMessage:/songlift/api/soap/hello</identifier>
+                                <argument name="action" />
+                                <argument name="message" />
+                            </active>
+                        </grammar>
+                        
+                        <request>
+                            <identifier>active:dpml</identifier>
+                            <argument name="operator">res:/resources/endpoints/api/soap/hello.dpml</argument>
+                            <argument method="as-string" name="action">arg:action</argument>
+                            <argument name="message">arg:message</argument>
+                        </request>
+                    </endpoint>
+                    
+                    <endpoint>
+                        <id>xpath</id>
+                        <grammar>
+                            <active>
+                                <identifier>active:xpath_template</identifier>
+                                <argument name="selector"/>
+                                <argument name="source"/>
+                            </active>
+                        </grammar>
+                        
+                        <request>
+                            <identifier>active:xpath2</identifier>
+                            <argument name="operator">arg:selector</argument>
+                            <argument name="operand">arg:source</argument>
+                            <argument name="namespaces">
+                                <literal assignment="namespaces" type="xml">
+                                    <namespaces>
+                                        <namespace>
+                                            <prefix>s11</prefix>
+                                            <uri>http://schemas.xmlsoap.org/soap/envelope/</uri>
+                                        </namespace>
+                                        <namespace>
+                                            <prefix>s12</prefix>
+                                            <uri>http://www.w3.org/2003/05/soap-envelope</uri>
+                                        </namespace>
+                                    </namespaces>
+                                </literal>
+                            </argument>
+                        </request>
+                    </endpoint>
+                </config>
+                <space>
+                    <fileset>
+                        <glob>etc/system/*</glob>
+                    </fileset>
+                    <import>
+                        <uri>urn:org:netkernel:lang:groovy</uri>
+                    </import>
+                    <import>
+                        <uri>urn:org:netkernel:ext:layer1</uri>
+                    </import>
+                    <import>
+                        <uri>urn:org:netkernel:xml:core</uri>
+                    </import>
+                    <import>
+                        <uri>urn:org:netkernel:xml:saxon</uri>
+                    </import>
+                    <fileset>
+                        <regex>res:/resources/endpoints/.*</regex>
+                    </fileset>
+                    <fileset>
+                        <regex>res:/etc/system/LogConfig.xml</regex>
+                    </fileset>
+                    <import>
+                        <uri>urn:org:netkernel:lang:dpml</uri>
+                    </import>
+                    <import>
+                        <uri>urn:org:netkernel:lang:freemarker</uri>
+                    </import>
+                </space>
+            </mapper>
+        </space>
+    </overlay>
+    <import>
+        <uri>urn:org:netkernel:soap:core</uri>
+    </import>
+    <import>
+        <uri>urn:org:netkernel:lang:dpml</uri>
+    </import>
+    <import>
+        <uri>urn:org:netkernel:mod:hds</uri>
+    </import>
+    <import>
+        <uri>urn:org:netkernel:ext:layer1</uri>
+    </import>
+</rootspace>

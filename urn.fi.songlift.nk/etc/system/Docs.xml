@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<docs>
+    <doc>
+        <id>urn:fi:songlift:nk:guide</id>
+        <title>Guide to Songlift</title>
+        <desc>This might guide you to Songlift in general</desc>
+        <uri>res:/resources/documentation/doc_guide.txt</uri>
+    </doc>
+    
+    <doc>
+        <id>urn:fi:songlift:nk:endpoints</id>
+        <title>Songlift Endpoint Reference</title>
+        <desc>This might reveal some aspects of Songlift endpoints</desc>
+        <uri>res:/resources/documentation/doc_endpoints.txt</uri>
+    </doc>
+</docs>

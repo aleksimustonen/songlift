@@ -1,0 +1,5 @@
+== Documentation Stub ==
+This is a documentation stub.
+
+For more information on editing documentation
+see the [doc:sysadmin:guide:doc:editing|Editing Guide].

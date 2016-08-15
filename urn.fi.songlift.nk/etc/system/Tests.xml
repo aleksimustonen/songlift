@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test>
+        <id>test:urn:fi:songlift:nk</id>
+        <name>Songlift Unit Tests</name>
+        <desc>These might be used to test Songlift</desc>
+        <uri>res:/resources/unittest/testlist.xml</uri>
+    </test>
+</tests>

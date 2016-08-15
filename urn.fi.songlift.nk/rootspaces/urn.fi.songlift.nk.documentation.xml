@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rootspace
+    name="Songlift - Documentation"
+    public="true"
+    uri="urn:fi:songlift:nk:documentation">
+    <fileset>
+        <regex>res:/etc/system/(Books|Docs).xml</regex>
+    </fileset>
+    
+    <fileset>
+        <regex>res:/resources/documentation/.*</regex>
+    </fileset>
+</rootspace>
+

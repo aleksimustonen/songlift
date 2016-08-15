@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence>
+    <request assignment="response">
+        <identifier>active:freemarker</identifier>
+        <argument name="operator">
+            <literal type="string">Hello ${helloParam}</literal>
+        </argument>
+        <argument name="helloParam">arg:helloParam</argument>
+    </request>
+    <log>
+        <message>
+            <literal type="string">REST HELLO DPML running with input %1</literal>
+        </message>
+        <param>arg:helloParam</param>
+    </log>
+</sequence>
