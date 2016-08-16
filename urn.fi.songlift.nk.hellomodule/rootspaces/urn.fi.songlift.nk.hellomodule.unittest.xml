@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rootspace
-    name="Songlift - Unit Tests"
+    name="Songlift Hello Module - Unit Tests"
     public="true"
-    uri="urn:fi:songlift:nk:unittest">
+    uri="urn:fi:songlift:nk:hellomodule:unittest">
     <fileset>
         <regex>res:/etc/system/Tests.xml</regex>
     </fileset>
@@ -18,7 +18,7 @@
     </endpoint>
     
     <import>
-        <uri>urn:fi:songlift:nk:services:rest</uri>
+        <uri>urn:fi:songlift:nk:hellomodule:services:rest</uri>
     </import>
     
     <import>

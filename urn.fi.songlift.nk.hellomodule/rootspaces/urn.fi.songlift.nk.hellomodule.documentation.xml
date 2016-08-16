@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rootspace
-    name="Songlift - Documentation"
+    name="Songlift Hello Module - Documentation"
     public="true"
-    uri="urn:fi:songlift:nk:documentation">
+    uri="urn:fi:songlift:nk:hellomodule:documentation">
     <fileset>
         <regex>res:/etc/system/(Books|Docs).xml</regex>
     </fileset>

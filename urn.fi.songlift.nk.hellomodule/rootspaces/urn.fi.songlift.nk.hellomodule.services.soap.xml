@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rootspace 
-    name="Songlift - SOAP Services"
-    uri="urn:fi:songlift:nk:services:soap" 
+    name="Songlift Hello Module - SOAP Services"
+    uri="urn:fi:songlift:nk:hellomodule:services:soap" 
     public="true">
     <fileset>
         <glob>etc/system/SimpleDynamicImportHook.xml</glob>
@@ -10,7 +10,7 @@
     <overlay>
         <prototype>http.SOAPOverlay</prototype>
         <config>
-            <zone>res:/songlift/api/soap/.*</zone>
+            <zone>res:/songlift/hellomodule/api/soap/.*</zone>
         </config>
         <space>
             <mapper>
@@ -18,7 +18,7 @@
                     <endpoint>
                         <grammar>
                             <active>
-                                <identifier>soapMessage:/songlift/api/soap/hello</identifier>
+                                <identifier>soapMessage:/songlift/hellomodule/api/soap/hello</identifier>
                                 <argument name="action" />
                                 <argument name="message" />
                             </active>
@@ -80,7 +80,7 @@
                         <uri>urn:org:netkernel:xml:saxon</uri>
                     </import>
                     <fileset>
-                        <regex>res:/resources/endpoints/soap/.*</regex>
+                        <regex>res:/resources/endpoints/api/soap/.*</regex>
                     </fileset>
                     <fileset>
                         <regex>res:/etc/system/LogConfig.xml</regex>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rootspace
-    name="Songlift - REST Services"
+    name="Songlift Hello Module - REST Services"
     public="true"
-    uri="urn:fi:songlift:nk:services:rest">
+    uri="urn:fi:songlift:nk:hellomodule:services:rest">
     <fileset>
         <regex>res:/etc/system/SimpleDynamicImportHook.xml</regex>
     </fileset>
@@ -10,12 +10,12 @@
     <mapper>
         <config>
             <endpoint>
-                <id>songlift:api:rest:hello</id>
-                <name>Songlift REST API</name>
+                <id>urn:fi:songlift:nk:hellomodule:api:rest:hello</id>
+                <name>Songlift Hello Module REST API</name>
                 <description>This is teh external REST API</description>
                 
                 <grammar>
-                    <simple>res:/songlift/api/rest/hello/{helloParam}</simple>
+                    <simple>res:/songlift/hellomodule/api/rest/hello/{helloParam}</simple>
                 </grammar>
                 
                 <request>
@@ -28,7 +28,7 @@
         
         <space>
             <fileset>
-                <regex>res:/resources/endpoints/.*</regex>
+                <regex>res:/resources/endpoints/api/rest/.*</regex>
             </fileset>
             <fileset>
                 <regex>res:/etc/system/LogConfig.xml</regex>

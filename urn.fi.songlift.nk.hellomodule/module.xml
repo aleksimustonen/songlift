@@ -7,7 +7,7 @@
         </identity>
         
         <info>
-            <name>Songlift Hello-module</name>
+            <name>Songlift Hello Module</name>
             <description>Songlift Hello-module Proto</description>
         </info>
     </meta>
@@ -16,9 +16,9 @@
         <dynamic/>
     </system>
     
-    <xi:include href="${project.build.directory}/xinclude-processing/rootspaces/urn.fi.songlift.nk.services.rest.xml"/>
-    <xi:include href="${project.build.directory}/xinclude-processing/rootspaces/urn.fi.songlift.nk.services.soap.xml"/>
-    <xi:include href="${project.build.directory}/xinclude-processing/rootspaces/urn.fi.songlift.nk.documentation.xml"/>
-    <xi:include href="${project.build.directory}/xinclude-processing/rootspaces/urn.fi.songlift.nk.unittest.xml"/>
+    <xi:include href="${project.build.directory}/xinclude-processing/rootspaces/urn.fi.songlift.nk.hellomodule.services.rest.xml"/>
+    <xi:include href="${project.build.directory}/xinclude-processing/rootspaces/urn.fi.songlift.nk.hellomodule.services.soap.xml"/>
+    <xi:include href="${project.build.directory}/xinclude-processing/rootspaces/urn.fi.songlift.nk.hellomodule.documentation.xml"/>
+    <xi:include href="${project.build.directory}/xinclude-processing/rootspaces/urn.fi.songlift.nk.hellomodule.unittest.xml"/>
 
 </module>

@@ -35,7 +35,7 @@
                                     <outputDirectory>${env.NKSE_HOME}/project-modules/${artifactId}-${project.version}</outputDirectory>
                                     <resources>
                                         <resource>
-                                            <directory>deploy/${artifactId}-${project.version}</directory>
+                                            <directory>target/deploy/${artifactId}-${project.version}</directory>
                                             <filtering>true</filtering>
                                         </resource>
                                     </resources>
@@ -83,7 +83,7 @@
                         </goals>
                         <configuration>
                             <encoding>UTF-8</encoding>
-                            <outputDirectory>deploy/${artifactId}-${project.version}</outputDirectory>
+                            <outputDirectory>target/deploy/${artifactId}-${project.version}</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>target/xinclude-processing</directory>
