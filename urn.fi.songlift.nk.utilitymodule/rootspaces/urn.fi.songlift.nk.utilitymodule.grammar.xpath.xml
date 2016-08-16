@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rootspace 
+    name="Songlift Utility Module - XPath with predeclared namespaces"
+    uri="urn:fi:songlift:nk:utilitymodule:grammar:xpath" 
+    public="true">
+    
+    <mapper>
+        <config>
+            <endpoint>
+                <id>xpath</id>
+                <grammar>
+                    <active>
+                        <identifier>active:xpath_template</identifier>
+                        <argument name="selector"/>
+                        <argument name="source"/>
+                    </active>
+                </grammar>
+                
+                <request>
+                    <identifier>active:xpath2</identifier>
+                    <argument name="operator">arg:selector</argument>
+                    <argument name="operand">arg:source</argument>
+                    <argument name="namespaces">
+                        <literal assignment="namespaces" type="xml">
+                            <namespaces>
+                                <namespace>
+                                    <prefix>s11</prefix>
+                                    <uri>http://schemas.xmlsoap.org/soap/envelope/</uri>
+                                </namespace>
+                                <namespace>
+                                    <prefix>s12</prefix>
+                                    <uri>http://www.w3.org/2003/05/soap-envelope</uri>
+                                </namespace>
+                            </namespaces>
+                        </literal>
+                    </argument>
+                </request>
+            </endpoint>
+        </config>
+        
+        <space>
+            <fileset>
+                <glob>etc/system/*</glob>
+            </fileset>
+            
+            <import>
+                <uri>urn:org:netkernel:xml:saxon</uri>
+            </import>
+            <import>
+                <uri>urn:org:netkernel:ext:layer1</uri>
+            </import>
+        </space>
+    </mapper>
+    
+    <import>
+        <uri>urn:org:netkernel:ext:layer1</uri>
+    </import>
+</rootspace>

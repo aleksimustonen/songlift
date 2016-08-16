@@ -10,6 +10,7 @@
     <description>Songlift NetKernel Proto</description>
     
     <modules>
+        <module>urn.fi.songlift.nk.utilitymodule</module>
         <module>urn.fi.songlift.nk.hellomodule</module>
         <module>urn.fi.songlift.nk.emperorservicemodule</module>
         <module>nkse-modules</module>

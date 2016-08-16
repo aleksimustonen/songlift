@@ -15,7 +15,7 @@ source.eachFile() { inputFile ->
 		
 		//System.out.println("Processing starts for file: " + filename);
 
-		def line = "<module runlevel=\"2\">modules/" + filename + "/</module>";
+		def line = "<module runlevel=\"2\">project-modules/" + filename + "/</module>";
 		lines.add(line);
 		System.out.println("Module line: " + line);
 
