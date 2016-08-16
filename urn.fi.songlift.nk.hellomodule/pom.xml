@@ -2,16 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     
     <parent>
-        <artifactId>build-root</artifactId>
+        <artifactId>urn.fi.songlift.nk.root</artifactId>
         <groupId>fi.songlift.nk</groupId>
         <version>1.0.0</version>
     </parent>
     
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>songlift-nk</artifactId>
+    <artifactId>urn.fi.songlift.nk.hellomodule</artifactId>
+    <version>${parent.version}</version>
     <packaging>pom</packaging>
-    <name>songlift-nk</name>
-    <description>Songlift NetKernel Proto</description>
+    <name>Hello-module</name>
+    <description>Songlift NetKernel Hello-module</description>
     
     <profiles>
         <profile>
@@ -31,10 +32,10 @@
                                 </goals>
                                 <configuration>
                                     <encoding>UTF-8</encoding>
-                                    <outputDirectory>${env.NKSE_HOME}/project-modules/urn.fi.songlift.nk-1.0.0</outputDirectory>
+                                    <outputDirectory>${env.NKSE_HOME}/project-modules/${artifactId}-${project.version}</outputDirectory>
                                     <resources>
                                         <resource>
-                                            <directory>deploy/urn.fi.songlift.nk-1.0.0</directory>
+                                            <directory>deploy/${artifactId}-${project.version}</directory>
                                             <filtering>true</filtering>
                                         </resource>
                                     </resources>
@@ -82,7 +83,7 @@
                         </goals>
                         <configuration>
                             <encoding>UTF-8</encoding>
-                            <outputDirectory>deploy/urn.fi.songlift.nk-1.0.0</outputDirectory>
+                            <outputDirectory>deploy/${artifactId}-${project.version}</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>target/xinclude-processing</directory>

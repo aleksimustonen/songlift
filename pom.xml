@@ -3,13 +3,13 @@
     
     <modelVersion>4.0.0</modelVersion>
     <groupId>fi.songlift.nk</groupId>
-    <artifactId>build-root</artifactId>
+    <artifactId>urn.fi.songlift.nk.root</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <name>Root of the Build</name>
     <description>Songlift NetKernel Proto</description>
     
     <modules>
-        <module>urn.fi.songlift.nk</module>
+        <module>urn.fi.songlift.nk.hellomodule</module>
     </modules>
 </project>

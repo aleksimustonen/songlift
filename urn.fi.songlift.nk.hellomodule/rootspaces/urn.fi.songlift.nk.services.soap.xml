@@ -80,7 +80,7 @@
                         <uri>urn:org:netkernel:xml:saxon</uri>
                     </import>
                     <fileset>
-                        <regex>res:/resources/endpoints/.*</regex>
+                        <regex>res:/resources/endpoints/soap/.*</regex>
                     </fileset>
                     <fileset>
                         <regex>res:/etc/system/LogConfig.xml</regex>

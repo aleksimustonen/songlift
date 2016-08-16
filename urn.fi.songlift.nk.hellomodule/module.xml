@@ -2,13 +2,13 @@
 <module version="2.0" xmlns:xi="http://www.w3.org/2001/XInclude">
     <meta>
         <identity>
-            <uri>urn:fi:songlift:nk</uri>
-            <version>1.0.0</version>
+            <uri>urn:fi:songlift:nk:hellomodule</uri>
+            <version>${project.version}</version>
         </identity>
         
         <info>
-            <name>Songlift</name>
-            <description>Songlift Proto</description>
+            <name>Songlift Hello-module</name>
+            <description>Songlift Hello-module Proto</description>
         </info>
     </meta>
     
