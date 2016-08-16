@@ -12,5 +12,12 @@
     <modules>
         <module>urn.fi.songlift.nk.hellomodule</module>
         <module>urn.fi.songlift.nk.emperorservicemodule</module>
+        <module>nkse-modules</module>
     </modules>
+    
+    <properties>
+        <root.build.directory>${session.executionRootDirectory}/target</root.build.directory>
+        <project.modules.directory>${root.build.directory}/deploy/project-modules</project.modules.directory>
+        <project.configs.directory>${root.build.directory}/deploy/etc</project.configs.directory>
+    </properties>
 </project>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <parent>
+        <artifactId>urn.fi.songlift.nk.root</artifactId>
+        <groupId>fi.songlift.nk</groupId>
+        <version>1.0.0</version>
+    </parent>
+    
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>nkse-modules</artifactId>
+    <version>${parent.version}</version>
+    <packaging>pom</packaging>
+    <name>NKSE Modules</name>
+    <description>Songlift NetKernel SE modules.xml File Generator</description>
+    
+    
+    
+    <profiles>
+        <profile>
+            <id>deploy</id>
+            <build>
+                <directory>target</directory>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>2.6</version>
+                        <executions>
+                            <execution>
+                                <id>deployment</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <encoding>UTF-8</encoding>
+                                    <outputDirectory>${env.NKSE_HOME}/etc</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${project.configs.directory}</directory>
+                                            <filtering>true</filtering>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    
+    <build>
+        <directory>target</directory>
+        <plugins>
+            <plugin> 
+                <groupId>org.codehaus.groovy.maven</groupId> 
+                <artifactId>gmaven-plugin</artifactId>
+                <version>1.0</version>
+                <executions> 
+                    <execution>
+                        <phase>compile</phase> 
+                        <goals> 
+                            <goal>execute</goal> 
+                        </goals> 
+                        <configuration> 
+                            <properties>
+                                <workingDir>${project.modules.directory}</workingDir>
+                                <vanillaXml>${project.basedir}/vanilla/modules.xml</vanillaXml>
+                                <targetXml>${project.build.directory}/modules.xml</targetXml>
+                            </properties>
+                            <source>${project.basedir}/modules.groovy</source> 
+                        </configuration> 
+                    </execution> 
+                </executions> 
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>installation</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <outputDirectory>${project.configs.directory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.directory}</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <dependencies>
+        <dependency> 
+            <groupId>org.apache.commons</groupId> 
+            <artifactId>commons-io</artifactId> 
+            <version>1.3.2</version> 
+        </dependency>
+    </dependencies>
+    
+</project>
