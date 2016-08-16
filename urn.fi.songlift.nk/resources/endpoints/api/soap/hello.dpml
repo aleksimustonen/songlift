@@ -8,9 +8,18 @@
     </xpath>
     
     <xpath assignment="requestName">
-        <selector><literal type="string">(//s11:Body|/s12:Body)/local-name(*[1])</literal></selector>
+        <selector><literal type="string">(//s11:Body|//s12:Body)/local-name(*[1])</literal></selector>
         <source>arg:message</source>
     </xpath>
+    
+    <log>
+        <message>
+            <literal type="string">Input: SOAP Action from HTTP Header: %1. Request name from XML: %2. Full SOAP Envelope: %3</literal>
+        </message>
+        <param>arg:action</param>
+        <param>this:requestName</param>
+        <param>this:inputEnvelope</param>
+    </log>
     
     <request assignment="responseName">
         <identifier>active:groovy</identifier>
@@ -55,15 +64,6 @@
         <argument name="operand">this:inputEnvelope</argument>
         <argument name="responseName">this:responseName</argument>
     </request>
-    
-    <log>
-        <message>
-            <literal type="string">Input: SOAP Action from HTTP Header: %1. Request name from XML: %2. Full SOAP Envelope: %3</literal>
-        </message>
-        <param>arg:action</param>
-        <param>this:requestName</param>
-        <param>this:inputEnvelope</param>
-    </log>
     
     <log>
         <message>
