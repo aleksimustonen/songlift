@@ -11,5 +11,6 @@
     
     <modules>
         <module>urn.fi.songlift.nk.hellomodule</module>
+        <module>urn.fi.songlift.nk.emperorservicemodule</module>
     </modules>
 </project>

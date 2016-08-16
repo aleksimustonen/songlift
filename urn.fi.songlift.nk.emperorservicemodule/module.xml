@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="2.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <meta>
+        <identity>
+            <uri>urn:fi:songlift:nk:emperorservicemodule</uri>
+            <version>${project.version}</version>
+        </identity>
+        
+        <info>
+            <name>Songlift Emperor Service Module</name>
+            <description>Songlift Emperor Service Module</description>
+        </info>
+    </meta>
+    
+    <system>
+        <dynamic/>
+    </system>
+    
+    <xi:include href="${project.build.directory}/xinclude-processing/rootspaces/urn.fi.songlift.nk.emperorservicemodule.services.rest.xml"/>
+    <xi:include href="${project.build.directory}/xinclude-processing/rootspaces/urn.fi.songlift.nk.emperorservicemodule.services.soap.xml"/>
+
+</module>
