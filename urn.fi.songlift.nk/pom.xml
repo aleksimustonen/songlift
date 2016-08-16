@@ -13,6 +13,40 @@
     <name>songlift-nk</name>
     <description>Songlift NetKernel Proto</description>
     
+    <profiles>
+        <profile>
+            <id>deploy</id>
+            <build>
+                <directory>target</directory>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>2.6</version>
+                        <executions>
+                            <execution>
+                                <id>deployment</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <encoding>UTF-8</encoding>
+                                    <outputDirectory>${env.NKSE_HOME}/project-modules/urn.fi.songlift.nk-1.0.0</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>deploy/urn.fi.songlift.nk-1.0.0</directory>
+                                            <filtering>true</filtering>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    
     <build>
         <directory>target</directory>
         <plugins>
@@ -59,23 +93,6 @@
                                         <exclude>**/rootspaces/*</exclude>
                                         <exclude>**/deploy/**/*</exclude>
                                     </excludes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>deployment</id>
-                        <phase>site</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <encoding>UTF-8</encoding>
-                            <outputDirectory>${env.NKSE_HOME}/project-modules/urn.fi.songlift.nk-1.0.0</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>deploy/urn.fi.songlift.nk-1.0.0</directory>
-                                    <filtering>true</filtering>
                                 </resource>
                             </resources>
                         </configuration>
